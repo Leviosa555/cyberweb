@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: cyberweb
+    env: static
+    buildCommand: ""
+    staticPublishPath: .
+    headers:
+      - key: Content-Security-Policy
+        value: "default-src 'self'; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;"
