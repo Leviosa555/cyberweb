@@ -1,7 +1,7 @@
 services:
   - type: web
     name: cyberweb
-    runtime: static
+    env: static
     buildCommand: ""
     staticPublishPath: .
     headers:
