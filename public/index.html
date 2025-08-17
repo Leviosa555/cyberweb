@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberScan - URL Security Analysis</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="cyber-background">
+        <div class="cyber-grid"></div>
+    </div>
+
+    <nav class="navbar cyber-navbar fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand cyber-brand" href="#">
+                <i class="fas fa-shield-virus"></i>
+                <span class="brand-text">CyberScan</span>
+            </a>
+            
+            <div class="nav-stats">
+                <span class="stat-item">
+                    <i class="fas fa-search"></i>
+                    <span id="scanCount">0</span> Scans
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid main-content">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 col-xl-6">
+                
+                <section class="hero-section">
+                    <div class="cyber-card main-card">
+                        <div class="card-header">
+                            <h1 class="cyber-title">
+                                <span class="title-icon"><i class="fas fa-crosshairs"></i></span>
+                                URL Security Scanner
+                            </h1>
+                            <p class="cyber-subtitle">
+                                Real-time threat detection • Multi-engine analysis • Free protection
+                            </p>
+                        </div>
+
+                        <form id="urlAnalyzerForm" class="analyzer-form">
+                            <div class="input-wrapper">
+                                <div class="input-container">
+                                    <i class="fas fa-link input-icon"></i>
+                                    <input 
+                                        type="url" 
+                                        id="urlInput" 
+                                        class="cyber-input" 
+                                        placeholder="Enter URL to scan (e.g., https://example.com)" 
+                                        required
+                                    >
+                                </div>
+                                
+                                <button type="submit" class="cyber-btn scan-btn" id="scanButton">
+                                    <span class="btn-content">
+                                        <i class="fas fa-radar-chart"></i>
+                                        <span class="btn-text">SCAN URL</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <section id="resultsSection" class="results-section" style="display: none;">
+                    <div id="scanProgress" class="scan-progress">
+                        <div class="cyber-card progress-card">
+                            <div class="progress-header">
+                                <h3><i class="fas fa-satellite-dish"></i> Scanning in Progress</h3>
+                                <div class="scan-status" id="scanStatus">Initializing scan...</div>
+                            </div>
+                            
+                            <div class="progress-container">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <div class="progress-percentage" id="progressPercentage">0%</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="scanResults" style="display: none;">
+                        <div class="cyber-card results-overview">
+                            <div class="overview-header">
+                                <h2><i class="fas fa-shield-check"></i> Security Analysis Complete</h2>
+                                <div class="scan-timestamp" id="scanTimestamp"></div>
+                            </div>
+                            
+                            <div class="security-score-container">
+                                <div class="score-display">
+                                    <div class="score-circle">
+                                        <div class="score-content">
+                                            <div class="score-number" id="securityScore">--</div>
+                                            <div class="score-label">Security Score</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="threat-summary">
+                                    <div class="threat-item">
+                                        <div class="threat-icon safe">
+                                            <i class="fas fa-shield-check"></i>
+                                        </div>
+                                        <div class="threat-info">
+                                            <div class="threat-count" id="cleanEngines">0</div>
+                                            <div class="threat-label">Clean Results</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="threat-item">
+                                        <div class="threat-icon warning">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="threat-info">
+                                            <div class="threat-count" id="suspiciousEngines">0</div>
+                                            <div class="threat-label">Suspicious</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="threat-item">
+                                        <div class="threat-icon danger">
+                                            <i class="fas fa-skull-crossbones"></i>
+                                        </div>
+                                        <div class="threat-info">
+                                            <div class="threat-count" id="maliciousEngines">0</div>
+                                            <div class="threat-label">Malicious</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="results-grid">
+                            <div class="cyber-card result-card">
+                                <div class="card-title">
+                                    <i class="fas fa-shield-virus"></i> Security Engines
+                                </div>
+                                <div class="card-content" id="securityEnginesContent">
+                                    <!-- Will be populated by JS -->
+                                </div>
+                            </div>
+
+                            <div class="cyber-card result-card">
+                                <div class="card-title">
+                                    <i class="fas fa-lightbulb"></i> Recommendations
+                                </div>
+                                <div class="card-content" id="recommendationsContent">
+                                    <!-- Will be populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
