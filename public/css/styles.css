@@ -528,10 +528,25 @@ body {
 }
 
 /* =================================
-   Font Awesome Override Fix
+   Font Awesome Definitive Fix
    ================================= */
-.fas, .far, .fab, .fa-solid, .fa-regular, .fa-brands {
-    font-family: "Font Awesome 6 Free" !important;
+.fas, .fa-solid {
     font-weight: 900 !important;
+}
+
+.far, .fa-regular {
+    font-weight: 400 !important;
+}
+
+.fab, .fa-brands {
+    font-weight: 400 !important;
+}
+
+i.fas, i.far, i.fab, i.fa-solid, i.fa-regular, i.fa-brands {
+    font-family: 'Font Awesome 6 Free' !important;
+    font-style: normal !important;
+    display: inline-block !important; /* Ensures the element is rendered */
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
 }
 
