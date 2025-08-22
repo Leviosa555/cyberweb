@@ -73,9 +73,32 @@ body {
     font-size: 1.5rem;
 }
 
-.cyber-brand i {
-    color: var(--primary-cyber);
-    text-shadow: 0 0 10px var(--primary-cyber);
+.cyber-brand img{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+
+    /* This is the filter that will turn your black SVG green */
+    filter: 
+        brightness(0) 
+        saturate(100%) 
+        invert(65%) 
+        sepia(85%) 
+        saturate(1500%) 
+        hue-rotate(85deg) 
+        brightness(110%);
+    
+    /* This adds the glow on top of the newly-colored green icon */
+    -webkit-filter: 
+        drop-shadow(0 0 10px var(--primary-cyber)) 
+        brightness(0) 
+        saturate(100%) 
+        invert(65%) 
+        sepia(85%) 
+        saturate(1500%) 
+        hue-rotate(85deg) 
+        brightness(110%);
+
     animation: pulse 2s infinite;
 }
 
@@ -98,8 +121,30 @@ body {
     font-weight: 500;
 }
 
-.stat-item i {
-    color: var(--primary-cyber);
+.stat-item img {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+
+    /* This is the filter that will turn your black SVG green */
+    filter: 
+        brightness(0) 
+        saturate(100%) 
+        invert(65%) 
+        sepia(85%) 
+        saturate(1500%) 
+        hue-rotate(85deg) 
+        brightness(110%);
+    
+    /* This adds the glow on top of the newly-colored green icon */
+    -webkit-filter: 
+        brightness(0) 
+        saturate(100%) 
+        invert(65%) 
+        sepia(85%) 
+        saturate(1500%) 
+        hue-rotate(85deg) 
+        brightness(110%);
 }
 
 .main-content {
@@ -165,7 +210,29 @@ body {
 }
 
 .title-icon {
-    color: var(--primary-cyber);
+  width: 34px;
+  height: 34px;
+  vertical-align: middle;
+
+    /* This is the filter that will turn your black SVG green */
+  filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(65%) 
+    sepia(85%) 
+    saturate(1500%) 
+    hue-rotate(85deg) 
+    brightness(110%);
+    
+    /* This adds the glow on top of the newly-colored green icon */
+  -webkit-filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(65%) 
+    sepia(85%) 
+    saturate(1500%) 
+    hue-rotate(85deg) 
+    brightness(110%);
     animation: rotate 4s linear infinite;
 }
 
@@ -194,12 +261,27 @@ body {
 }
 
 .input-icon {
+    /* --- Positioning (copied from your original code) --- */
     position: absolute;
     left: 1rem;
-    top: 50%;
+    top: 52%;
     transform: translateY(-50%);
-    color: var(--text-secondary);
     z-index: 2;
+
+    /* --- Explicit Size for the Image --- */
+    width: 21px;
+    height: 21px;
+    
+    /* --- Filter to turn a black icon to the correct grey --- */
+    filter: 
+        brightness(0) 
+        saturate(100%) 
+        invert(81%) 
+        sepia(6%) 
+        saturate(11%) 
+        hue-rotate(314deg) 
+        brightness(91%) 
+        contrast(87%);
 }
 
 .cyber-input {
