@@ -30,6 +30,11 @@ body {
     overflow-x: hidden;
 }
 
+.fas, .far, .fab {
+  font-family: "Font Awesome 6 Free" !important;
+  font-weight: 900; /* Ensure the correct font weight is used */
+}
+
 .cyber-background {
     position: fixed;
     top: 0;
